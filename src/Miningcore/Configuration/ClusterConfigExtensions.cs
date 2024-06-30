@@ -250,7 +250,7 @@ public partial class EthereumCoinTemplate
     #endregion
 }
 
-public partial class KaspaCoinTemplate
+public partial class ApsakCoinTemplate
 {
     #region Overrides of CoinTemplate
 
@@ -268,7 +268,7 @@ public partial class KaspaCoinTemplate
                 return "Pyrinhash";
             default:
                 // TODO: return variant
-                return "kHeavyHash";
+                return "rHeavyHash";
         }
     }
 

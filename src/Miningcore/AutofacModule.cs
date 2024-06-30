@@ -11,7 +11,7 @@ using Miningcore.Blockchain.Equihash;
 using Miningcore.Blockchain.Ergo;
 using Miningcore.Blockchain.Ethereum;
 using Miningcore.Blockchain.Handshake;
-using Miningcore.Blockchain.Kaspa;
+using Miningcore.Blockchain.Apsak;
 using Miningcore.Blockchain.Nexa;
 using Miningcore.Blockchain.Progpow;
 using Miningcore.Configuration;
@@ -212,9 +212,9 @@ public class AutofacModule : Module
         builder.RegisterType<HandshakeJobManager>();
         
         //////////////////////
-        // Kaspa
+        // Apsak
 
-        builder.RegisterType<KaspaJobManager>();
+        builder.RegisterType<ApsakJobManager>();
 
         //////////////////////
         // Nexa

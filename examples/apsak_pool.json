@@ -1,0 +1,124 @@
+﻿{
+    "logging": {
+        "level": "info",
+        "enableConsoleLog": true,
+        "enableConsoleColors": true,
+        "logFile": "",
+        "apiLogFile": "",
+        "logBaseDirectory": "",
+        "perPoolLogFile": false
+    },
+    "banning": {
+        "manager": "Integrated",
+        "banOnJunkReceive": true,
+        "banOnInvalidShares": false
+    },
+    "notifications": {
+        "enabled": false,
+        "email": {
+            "host": "smtp.example.com",
+            "port": 587,
+            "user": "user",
+            "password": "password",
+            "fromAddress": "info@yourpool.org",
+            "fromName": "support"
+        },
+        "admin": {
+            "enabled": false,
+            "emailAddress": "user@example.com",
+            "notifyBlockFound": true
+        }
+    },
+    "persistence": {
+        "postgres": {
+            "host": "127.0.0.1",
+            "port": 5432,
+            "user": "miningcore",
+            "password": "password",
+            "database": "miningcore"
+        }
+    },
+    "paymentProcessing": {
+        "enabled": true,
+        "interval": 60,
+        "shareRecoveryFile": "recovered-shares.txt"
+    },
+    "api": {
+        "enabled": true,
+        "listenAddress": "*",
+        "port": 4000,
+        "metricsIpWhitelist": [],
+        "rateLimiting": {
+            "disabled": true,
+            "rules": [
+                {
+                    "Endpoint": "*",
+                    "Period": "1s",
+                    "Limit": 5
+                }
+            ],
+            "ipWhitelist": [
+                ""
+            ]
+        }
+    },
+    "pools": [{
+        "id": "sak",
+        "enabled": true,
+        "coin": "apsak",
+        "address": "apsak:qzylak4d70enwpel5vrpgvjt5049prs5l42l4dl4ejp9vgmx6dc8c59a2sw7y",
+        "rewardRecipients": [
+            {
+                "type": "op",
+                "address": "apsak:qzylak4d70enwpel5vrpgvjt5049prs5l42l4dl4ejp9vgmx6dc8c59a2sw7y",
+                "percentage": 2.5
+            }
+        ],
+        "protobufWalletRpcServiceName": "apsakwalletd.apsakwalletd",
+        "clientConnectionTimeout": 600,
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 50,
+            "checkThreshold": 20
+        },
+        "ports": {
+            "4004": {
+                "listenAddress": "0.0.0.0",
+                "difficulty": 4,
+                "varDiff": {
+                    "minDiff": 2,
+                    "maxDiff": null,
+                    "targetTime": 15,
+                    "retargetTime": 90,
+                    "variancePercent": 100,
+                    "maxDelta": 512
+                }
+            }
+        },
+        "daemons": [
+            {
+                "host": "127.0.0.1",
+                "port": 17110,
+                "user": null,
+                "password": null
+            },
+            {
+                "host": "127.0.0.1",
+                "port": 8082,
+                "user": null,
+                "password": null,
+                "category": "wallet"
+            }
+        ],
+        "paymentProcessing": {
+            "enabled": true,
+            "walletPassword": "wallet_password",
+            "minimumPayment": 10,
+            "payoutScheme": "PPLNS",
+            "payoutSchemeConfig": {
+                "factor": 0.5
+            }
+        }
+    }]
+}

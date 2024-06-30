@@ -5,7 +5,7 @@ using Miningcore.Blockchain.Alephium.Configuration;
 using Miningcore.Blockchain.Bitcoin.Configuration;
 using Miningcore.Blockchain.Ergo.Configuration;
 using Miningcore.Blockchain.Handshake.Configuration;
-using Miningcore.Blockchain.Kaspa.Configuration;
+using Miningcore.Blockchain.Apsak.Configuration;
 using Miningcore.Configuration;
 using Miningcore.Extensions;
 using Miningcore.Mining;
@@ -48,8 +48,8 @@ public static class MiningPoolExtensions
                 case "handshake":
                     extra.StripValue(nameof(HandshakePoolPaymentProcessingConfigExtra.WalletPassword));
                     break;
-                case "kaspa":
-                    extra.StripValue(nameof(KaspaPaymentProcessingConfigExtra.WalletPassword));
+                case "apsak":
+                    extra.StripValue(nameof(ApsakPaymentProcessingConfigExtra.WalletPassword));
                     break;
             }
         }

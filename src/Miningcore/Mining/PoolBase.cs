@@ -275,18 +275,15 @@ public abstract class PoolBase : StratumServer,
     protected void ConsiderBan(StratumConnection connection, WorkerContextBase context, PoolShareBasedBanningConfig config)
     {
         var totalShares = context.Stats.ValidShares + context.Stats.InvalidShares;
-
         if(totalShares > config.CheckThreshold)
         {
             var ratioBad = (double) context.Stats.InvalidShares / totalShares;
-
             if(ratioBad < config.InvalidPercent / 100.0)
             {
                 // reset stats
                 context.Stats.ValidShares = 0;
                 context.Stats.InvalidShares = 0;
             }
-
             else
             {
                 if(poolConfig.Banning?.Enabled == true &&
@@ -294,9 +291,7 @@ public abstract class PoolBase : StratumServer,
                        clusterConfig.Banning?.BanOnInvalidShares == true))
                 {
                     logger.Info(() => $"[{connection.ConnectionId}] Banning worker for {config.Time} sec: {Math.Floor(ratioBad * 100)}% of the last {totalShares} shares were invalid");
-
                     banManager.Ban(connection.RemoteEndpoint.Address, TimeSpan.FromSeconds(config.Time));
-
                     Disconnect(connection);
                 }
             }

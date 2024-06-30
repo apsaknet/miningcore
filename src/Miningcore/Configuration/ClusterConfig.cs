@@ -42,9 +42,9 @@ public enum CoinFamily
     
     [EnumMember(Value = "handshake")]
     Handshake,
-        
-    [EnumMember(Value = "kaspa")]
-    Kaspa,
+
+    [EnumMember(Value = "apsak")]
+    Apsak,
 
     [EnumMember(Value = "nexa")]
     Nexa,
@@ -157,7 +157,7 @@ public abstract partial class CoinTemplate
         {CoinFamily.Ergo, typeof(ErgoCoinTemplate)},
         {CoinFamily.Ethereum, typeof(EthereumCoinTemplate)},
         {CoinFamily.Handshake, typeof(BitcoinTemplate)},
-        {CoinFamily.Kaspa, typeof(KaspaCoinTemplate)},
+        {CoinFamily.Apsak, typeof(ApsakCoinTemplate)},
         {CoinFamily.Nexa, typeof(BitcoinTemplate)},
         {CoinFamily.Progpow, typeof(ProgpowCoinTemplate)},
     };
@@ -654,7 +654,7 @@ public partial class EthereumCoinTemplate : CoinTemplate
     public string Ethasher { get; set; } = "ethash";
 }
 
-public partial class KaspaCoinTemplate : CoinTemplate
+public partial class ApsakCoinTemplate : CoinTemplate
 {
 }
 
